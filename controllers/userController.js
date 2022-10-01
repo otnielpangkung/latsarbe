@@ -13,7 +13,8 @@ class UserController {
 			},
 		})
 			.then((data) => {
-				console.log(data.password);
+				console.log("yess");
+				// console.log(data.password);
 				if (data) {
 					console.log(data.password);
 					let password = cekPass(req.body.password, data.password);

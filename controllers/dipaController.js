@@ -19,7 +19,7 @@ class DipaController {
 					model: Kro, 
 					attributes: {
 						 exclude: ['createdAt', 'updatedAt'],
-						 include: [sequelize.fn('sum', sequelize.col('Realisasi.amount')), 'total_amount']
+						//  include: [sequelize.fn('sum', sequelize.col('Realisasi.amount')), 'total_amount']
 					},
 					include: [
 						{
@@ -37,17 +37,8 @@ class DipaController {
 							]
 						},
 					]
-				}, {
-					model: Realisasi,
-					 as :  'Realisasi',
-					attributes: [
-						'id','KroId','RoId','dateTransaction',
-						// [sequelize.fn('sum', sequelize.col('amount')), 'total_amount'],	
-					],
-					// where: {
-					// 	dateTransaction: sequelize.fn('MONTH', sequelize.col('dateTransaction'), req.query)	
-					// }
-				}
+				},
+				
 			],
 			attributes: { exclude: ['createdAt', 'updatedAt'] },
 		}).then ( async data => {
